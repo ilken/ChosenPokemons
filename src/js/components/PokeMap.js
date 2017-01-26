@@ -50,7 +50,7 @@ export default class PokeMap extends React.Component {
 		if(this.map){
 			this.clearMarkers();
 			this.clearMarkedPokemon();
-			
+
 			for(let p of this.props.pokemons){
 				let _marker = new google.maps.Marker({
 					position: new google.maps.LatLng(p.lat, p.lon),
@@ -87,7 +87,7 @@ export default class PokeMap extends React.Component {
 		return (
 			<Gmaps
 				width={'100%'}
-				height={'600px'}
+				height={'400px'}
 				lat={51.5072749}
 				lng={-0.1282788}
 				zoom={11}
