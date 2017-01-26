@@ -1,6 +1,11 @@
 import React from 'react';
+import * as Actions from "../actions/Actions";
 
 export default class Pokemon extends React.Component {
+	handleClick(){
+		Actions.viewOnMap(this.props.data);
+	}
+
 	render () {
 		const data = this.props.data;
 		const mapUrl = "https://www.google.co.uk/maps/search/" + data.lat + "," + data.lon;
@@ -15,7 +20,7 @@ export default class Pokemon extends React.Component {
 				<div className="col-md-1 col-sm-1 col-xs-2">
 					<img className="img-responsive" src={"/img/pokemon/" + data.id + ".svg"} alt={data.name}/>
 				</div>
-				<div className="col-md-2 col-sm-5 col-xs-3 text-center">
+				<div className="col-md-1 col-sm-5 col-xs-3 text-center">
 					<span>{data.name}</span>
 				</div>
 				<div className="col-md-3 col-sm-6 col-xs-6 text-center">
@@ -27,9 +32,14 @@ export default class Pokemon extends React.Component {
 				<div className="col-md-2 col-sm-6 col-xs-6 text-center">
 					<span>Expires: {formattedTime}</span>
 				</div>
-				<div className="col-md-2 col-sm-12 col-xs-12 text-center">
-					<a href={mapUrl} className="btn btn-block btn-success" target="_blank">
-						<i class="fa fa-map-marker" aria-hidden="true"></i> View on Map
+				<div className="col-md-2 col-sm-6 col-xs-6 text-center">
+					<a className="btn btn-block btn-success" onClick={this.handleClick.bind(this)}>
+						<i className="fa fa-map-marker" aria-hidden="true"></i> View on Map
+					</a>
+				</div>
+				<div className="col-md-2 col-sm-6 col-xs-6 text-center">
+					<a href={mapUrl} className="btn btn-block btn-primary" target="_blank">
+						<i className="fa fa-map" aria-hidden="true"></i> Get Directions
 					</a>
 				</div>
 			</div>

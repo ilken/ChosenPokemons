@@ -13,3 +13,10 @@ export function updateSlider (data) {
 		data
 	});
 }
+
+export function viewOnMap (data) {
+	dispatcher.dispatch({
+		type: 'VIEW_ON_MAP',
+		data
+	});
+}

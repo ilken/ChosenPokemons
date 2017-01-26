@@ -7,6 +7,7 @@ class Store extends EventEmitter {
 		this.pokemons = [];
 		this.filteredPokemons = [];
 		this.ivLimit = 90;
+		this.markedOnMap = null;
 	}
 
 	updateData (response) {
@@ -34,6 +35,15 @@ class Store extends EventEmitter {
 		return this.ivLimit;
 	}
 
+	viewOnMap (response) {
+		this.markedOnMap = response;
+		this.emit('ViewOnMap');
+	}
+
+	getPokemonToMark (response) {
+		return this.markedOnMap;
+	}
+
 	handleActions (action) {
 		switch (action.type) {
 			case 'UPDATE_POKEMONS':{
@@ -42,6 +52,10 @@ class Store extends EventEmitter {
 			}
 			case 'UPDATE_SLIDER':{
 				this.updateSlider(action.data);
+				break;
+			}
+			case 'VIEW_ON_MAP':{
+				this.viewOnMap(action.data);
 				break;
 			}
 		}

@@ -1,5 +1,6 @@
 import React from 'react';
 import Pokemon from './Pokemon';
+import PokeMap from './PokeMap';
 import IVSlider from './IVSlider';
 import LoadingScreen from './LoadingScreen';
 import Store from '../stores/Store';
@@ -46,6 +47,9 @@ export default class Pokemons extends React.Component {
 
 			return (
 				<div className="row">
+					<div className="col-md-12 col-sm-12 col-xs-12">
+						<PokeMap pokemons={this.state.pokemons}/>
+					</div>
 					<div className="col-md-12 col-sm-12 col-xs-12">
 						<IVSlider sliderValue={this.state.sliderValue}/>
 					</div>
