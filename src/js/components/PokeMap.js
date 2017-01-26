@@ -43,7 +43,7 @@ export default class PokeMap extends React.Component {
 		});
 
 		this.map.setCenter({lat: _markedPokemon.lat, lng: _markedPokemon.lon});
-		this.map.setZoom(16);
+		this.map.setZoom(15);
 		window.scroll(0,0);
 	}
 

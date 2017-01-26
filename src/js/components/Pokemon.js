@@ -20,13 +20,13 @@ export default class Pokemon extends React.Component {
 				<div className="col-md-1 col-sm-1 col-xs-2">
 					<img className="img-responsive" src={"/img/pokemon/" + data.id + ".svg"} alt={data.name}/>
 				</div>
-				<div className="col-md-1 col-sm-5 col-xs-3 text-center">
+				<div className="col-md-1 col-sm-5 col-xs-8 text-center">
 					<span>{data.name}</span>
 				</div>
-				<div className="col-md-3 col-sm-6 col-xs-6 text-center">
+				<div className="col-md-3 col-sm-6 col-xs-12 text-center">
 					<span>Atk:{data.attack} | Def:{data.defence} | Sta:{data.stamina}</span>
 				</div>
-				<div className="col-md-1 col-sm-5 col-xs-3 text-center">
+				<div className="col-md-1 col-sm-5 col-xs-6 text-center">
 					<span>IV : {data.iv}%</span>
 				</div>
 				<div className="col-md-2 col-sm-6 col-xs-6 text-center">
