@@ -23,7 +23,11 @@ module.exports = {
 	plugins: debug ? [] : [
 		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false })
+		new webpack.optimize.UglifyJsPlugin({
+			mangle: false,
+			sourcemap: false,
+			compress: { warnings: false }
+		})
 	],
 	babel: {
 		presets: ['react', 'es2015', 'stage-0'],
