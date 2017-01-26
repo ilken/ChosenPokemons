@@ -8,16 +8,19 @@ export default class IVSlider extends React.Component {
 	}
 
 	render () {
+		const labels = {80: 'Low IV', 100: 'High IV'};
 		return (
 			<div className="slider">
 				<Slider
 					min={80}
 					max={100}
 					step={1}
-					labels={ {0: 'Low IV', 100: 'High IV'} }
+					labels={labels}
 					value={this.props.sliderValue}
 					onChange={this.handleChange.bind(this)} />
-          		<div>Value: {this.props.sliderValue}</div>
+          		<div className="sliderValue text-center">
+					<h2>Min IV%: {this.props.sliderValue} </h2>
+				</div>
 			</div>
 		);
 	}

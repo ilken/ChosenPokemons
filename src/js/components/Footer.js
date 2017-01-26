@@ -6,7 +6,8 @@ export default class Footer extends React.Component {
 			<footer className="footer container">
 				<div className="row">
 					<div className="col-md-12 col-sm-12 col-xs-12">
-
+						Pokemon icons by
+						<a href="http://theartificial.nl/"> The Artificial</a>
 					</div>
 				</div>
 			</footer>

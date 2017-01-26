@@ -23,7 +23,6 @@ export default class Pokemons extends React.Component {
 		const dbRef = db.ref().child('pokemons');
 
 		dbRef.on('value', snapshot => {
-			console.log(snapshot.val());
 			Actions.updatePokemons(snapshot.val());
 		});
 

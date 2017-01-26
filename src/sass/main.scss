@@ -19,12 +19,18 @@ body {
 
 		footer{
 			border-top: 1px solid #080808;
+			color: #9d9d9d;
 		}
 
 		.loadingScreen{
 			.loadingImage{
 				margin: 0 auto;
+				min-height: 400px;
 			}
+		}
+
+		.pokemonContainer{
+			margin-bottom: 5px;
 		}
 
 		/**
