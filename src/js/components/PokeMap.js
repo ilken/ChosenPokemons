@@ -44,6 +44,7 @@ export default class PokeMap extends React.Component {
 
 		this.map.setCenter({lat: _markedPokemon.lat, lng: _markedPokemon.lon});
 		this.map.setZoom(16);
+		window.scroll(0,0);
 	}
 
 	createMarkers() {
