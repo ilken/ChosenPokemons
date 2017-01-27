@@ -20,3 +20,11 @@ export function viewOnMap (data) {
 		data
 	});
 }
+
+export function openInfoWindow (marker, pokemon) {
+	dispatcher.dispatch({
+		type: 'OPEN_INFO_WINDOW',
+		marker,
+		pokemon
+	});
+}

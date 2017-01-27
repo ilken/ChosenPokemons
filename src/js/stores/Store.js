@@ -8,6 +8,7 @@ class Store extends EventEmitter {
 		this.filteredPokemons = [];
 		this.ivLimit = 90;
 		this.markedOnMap = null;
+		this.infoWindowData = null;
 	}
 
 	updateData (response) {
@@ -44,6 +45,18 @@ class Store extends EventEmitter {
 		return this.markedOnMap;
 	}
 
+	getInfoWindowData(){
+		return this.infoWindowData;
+	}
+
+	handleInfoWindow(marker, pokemon){
+		this.infoWindowData = {
+			marker,
+			pokemon
+		}
+		this.emit('InfoWindowUpdate');
+	}
+
 	handleActions (action) {
 		switch (action.type) {
 			case 'UPDATE_POKEMONS':{
@@ -56,6 +69,10 @@ class Store extends EventEmitter {
 			}
 			case 'VIEW_ON_MAP':{
 				this.viewOnMap(action.data);
+				break;
+			}
+			case 'OPEN_INFO_WINDOW':{
+				this.handleInfoWindow(action.marker, action.pokemon);
 				break;
 			}
 		}
