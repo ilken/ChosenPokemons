@@ -8,7 +8,11 @@ export default class PokeMap extends React.Component {
 		this.API_KEY = 'AIzaSyB0LCSzHoRAkhCpheh4c_0BARgsjF9dr_s';
 		this.map = null;
 		this.markers = [];
-		this.markedOnMap = null;
+
+		this.state = {
+			zoom: 11,
+			center: {lat: 51.5072749, lng: -0.1282788}
+		};
 	}
 
 	componentWillMount () {
@@ -21,7 +25,8 @@ export default class PokeMap extends React.Component {
 		this.map = map;
 
 		this.map.setOptions({
-			disableDefaultUI: true
+			disableDefaultUI: true,
+			clickableIcons: false
 		});
 
 		this.createMarkers();
@@ -29,18 +34,6 @@ export default class PokeMap extends React.Component {
 
 	updateMarkedPokemon(){
 		let _markedPokemon = Store.getPokemonToMark();
-		this.clearMarkedPokemon();
-
-		this.markedOnMap = new google.maps.Circle({
-			strokeColor: '#FF0000',
-			strokeOpacity: 0.8,
-			strokeWeight: 2,
-			fillColor: '#FF0000',
-			fillOpacity: 0.35,
-			map: this.map,
-			center: {lat: _markedPokemon.lat, lng: _markedPokemon.lon},
-			radius: 75
-		});
 
 		this.map.setCenter({lat: _markedPokemon.lat, lng: _markedPokemon.lon});
 		this.map.setZoom(15);
@@ -50,7 +43,6 @@ export default class PokeMap extends React.Component {
 	createMarkers() {
 		if(this.map){
 			this.clearMarkers();
-			this.clearMarkedPokemon();
 
 			for(let p of this.props.pokemons){
 				let _marker = new google.maps.Marker({
@@ -75,13 +67,6 @@ export default class PokeMap extends React.Component {
 		this.markers = [];
 	}
 
-	clearMarkedPokemon() {
-		if(this.markedOnMap){
-			this.markedOnMap.setMap(null);
-			this.markedOnMap = null;
-		}
-	}
-
 	render () {
 		this.createMarkers();
 
@@ -89,9 +74,9 @@ export default class PokeMap extends React.Component {
 			<Gmaps
 				width={'100%'}
 				height={'400px'}
-				lat={51.5072749}
-				lng={-0.1282788}
-				zoom={11}
+				lat={this.state.center.lat}
+				lng={this.state.center.lng}
+				zoom={this.state.zoom}
 				loadingMessage={'Loading...'}
 				params={{v: '3.exp', key: this.API_KEY}}
 				onMapCreated={this.onMapCreated.bind(this)}>
