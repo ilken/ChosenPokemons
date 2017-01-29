@@ -25,6 +25,20 @@ export default class PokeMap extends React.Component {
 		});
 	}
 
+	componentWillReceiveProps(nextProps) {
+		if (this.props !== nextProps){
+			if (this.state.map) {
+				this.setState({
+					zoom: this.state.map.getZoom(),
+					center: {
+						lat: this.state.map.getCenter().lat(),
+						lng: this.state.map.getCenter().lng()
+					}
+				});
+			}
+		}
+	}
+
 	onMapCreated(map) {
 		map.setOptions({
 			disableDefaultUI: true,
@@ -40,7 +54,6 @@ export default class PokeMap extends React.Component {
 		let _markedPokemon = Store.getPokemonToMark();
 
 		this.state.map.setCenter({lat: _markedPokemon.lat, lng: _markedPokemon.lon});
-		this.state.map.setZoom(15);
 		window.scroll(0,0);
 	}
 

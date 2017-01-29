@@ -36,12 +36,14 @@ export default class InfoWindow extends React.Component {
 	}
 
 	openInfoWindow(){
-		let pokemon = this.props.infoWindowData.pokemon;
-		let content = this.buildInfoContent(pokemon);
+		if(this.props.infoWindowData){
+			let pokemon = this.props.infoWindowData.pokemon;
+			let content = this.buildInfoContent(pokemon);
 
-		this.props.map.setCenter(this.props.infoWindowData.marker.getPosition());
-		this.state.infoWindow.setContent(content);
-		this.state.infoWindow.open(this.props.map, this.props.infoWindowData.marker);
+			this.props.map.setCenter(this.props.infoWindowData.marker.getPosition());
+			this.state.infoWindow.setContent(content);
+			this.state.infoWindow.open(this.props.map, this.props.infoWindowData.marker);
+		}
 	}
 
 	buildInfoContent(pokemon){

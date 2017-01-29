@@ -29,6 +29,7 @@ class Store extends EventEmitter {
 	updateSlider (response) {
 		this.ivLimit = response;
 		this.filteredPokemons = this.filterPokemons();
+		this.resetInfoWindow();
 		this.emit('Update');
 	}
 
@@ -47,6 +48,11 @@ class Store extends EventEmitter {
 
 	getInfoWindowData(){
 		return this.infoWindowData;
+	}
+
+	resetInfoWindow(){
+		this.infoWindowData = null;
+		this.emit('InfoWindowUpdate');
 	}
 
 	handleInfoWindow(marker, pokemon){
