@@ -21,21 +21,26 @@ export default class PokeMap extends React.Component {
 			this.chageViewOnMap();
 		});
 		Store.on('InfoWindowUpdate', () => {
+			this.updateMapData();
 			this.openInfoWindow();
 		});
 	}
 
 	componentWillReceiveProps(nextProps) {
 		if (this.props !== nextProps){
-			if (this.state.map) {
-				this.setState({
-					zoom: this.state.map.getZoom(),
-					center: {
-						lat: this.state.map.getCenter().lat(),
-						lng: this.state.map.getCenter().lng()
-					}
-				});
-			}
+			this.updateMapData();
+		}
+	}
+
+	updateMapData(){
+		if (this.state.map) {
+			this.setState({
+				zoom: this.state.map.getZoom(),
+				center: {
+					lat: this.state.map.getCenter().lat(),
+					lng: this.state.map.getCenter().lng()
+				}
+			});
 		}
 	}
 

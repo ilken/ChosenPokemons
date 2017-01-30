@@ -23,7 +23,8 @@ export default class InfoWindow extends React.Component {
 		if(!this.state.infoWindow){
 			this.setState({
 				infoWindow: new google.maps.InfoWindow({
-					content: ''
+					content: '',
+					disableAutoPan: true
 				})
 			});
 		}
