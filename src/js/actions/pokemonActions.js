@@ -13,7 +13,7 @@ export function fetchPokemons() {
     }
 }
 
-export function updatePokemons(payload) {
+export function updatePokemons(pokemons) {
     return (dispatch, getState) => {
         const {slider, map} = getState();
         let center = map.map ? { lat: map.map.center.lat(), lng: map.map.center.lng() } : map.center;
@@ -21,10 +21,12 @@ export function updatePokemons(payload) {
 
         dispatch({
             type: 'UPDATE_POKEMONS',
-            payload,
-            ivLimit: slider.value,
-            center,
-            zoom
+            payload: {
+                pokemons,
+                center,
+                zoom,
+                ivLimit: slider.value
+            }
         });
     };
 }

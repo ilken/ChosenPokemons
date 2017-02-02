@@ -12,14 +12,14 @@ export default function reducer(
             return {
                 ...state,
                 fetching: false,
-                pokemons: action.payload,
-                filteredPokemons: filterPokemons(action.payload, action.ivLimit)
+                pokemons: action.payload.pokemons,
+                filteredPokemons: filterPokemons(action.payload.pokemons, action.payload.ivLimit)
             }
         }
         case 'UPDATE_SLIDER': {
             return {
                 ...state,
-                filteredPokemons: filterPokemons(state.pokemons, action.payload)
+                filteredPokemons: filterPokemons(state.pokemons, action.payload.sliderValue)
             }
         }
     }

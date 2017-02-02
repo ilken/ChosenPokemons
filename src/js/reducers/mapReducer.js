@@ -28,13 +28,13 @@ export default function reducer(
         case 'MAP_CREATED':{
             return {
                 ...state,
-                map: action.payload
+                map: action.payload.map
             };
         }
         case 'UPDATE_MARKERS':{
             return {
                 ...state,
-                markers: action.payload,
+                markers: action.payload.markers,
                 infoWindow: {
                     marker: null,
                     instance: state.infoWindow.state
@@ -45,8 +45,8 @@ export default function reducer(
             return {
                 ...state,
                 center: {
-                    lat: action.payload.lat,
-                    lng: action.payload.lon
+                    lat: action.payload.pokemon.lat,
+                    lng: action.payload.pokemon.lon
                 },
                 zoom: state.map.getZoom(),
                 infoWindow: {
@@ -59,12 +59,12 @@ export default function reducer(
             return {
                 ...state,
                 center: {
-                    lat: action.payload.pokemon.lat,
-                    lng: action.payload.pokemon.lon
+                    lat: action.payload.marker.pokemon.lat,
+                    lng: action.payload.marker.pokemon.lon
                 },
                 zoom: state.map.getZoom(),
                 infoWindow: {
-                    marker: action.payload,
+                    marker: action.payload.marker,
                     instance: getInfoWindowInstance(state.infoWindow.instance)
                 }
             };
@@ -72,13 +72,20 @@ export default function reducer(
         case 'UPDATE_POKEMONS':{
             return {
                 ...state,
-                center: action.center,
-                zoom: action.zoom,
+                center: action.payload.center,
+                zoom: action.payload.zoom,
                 infoWindow: {
                     marker: null,
                     instance: state.infoWindow.instance
                 }
             };
+        }
+        case 'UPDATE_SLIDER':{
+            return {
+                ...state,
+                center: action.payload.center,
+                zoom: action.payload.zoom,
+            }
         }
     }
 

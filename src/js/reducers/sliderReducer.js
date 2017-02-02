@@ -6,16 +6,12 @@ export default function reducer(
 ) {
     switch (action.type) {
         case 'UPDATE_SLIDER':{
-            return handleSliderUpdate(state, action.payload);
+            return {
+                ...state,
+                value: action.payload.sliderValue
+            }
         }
     }
 
     return state;
-}
-
-let handleSliderUpdate = (state, payload) => {
-    return {
-        ...state,
-        value: payload
-    }
 }

@@ -1,33 +1,41 @@
-export function mapCreated(payload) {
+export function mapCreated(map) {
     return (dispatch, getState) => {
         const {pokemon} = getState();
 
         dispatch({
             type: 'MAP_CREATED',
-            payload,
-            pokemons: pokemon.filteredPokemons
+            payload: {
+                map,
+                pokemons: pokemon.filteredPokemons
+            }
         });
     };
 }
 
-export function updateMarkers(payload) {
+export function updateMarkers(markers) {
     return {
         type: 'UPDATE_MARKERS',
-        payload,
+        payload: {
+            markers
+        },
     }
 }
 
-export function openInfoWindow(payload) {
+export function openInfoWindow(marker) {
     return {
         type: 'OPEN_INFO_WINDOW',
-        payload,
+        payload: {
+            marker
+        }
     }
 }
 
-export function viewPokemonOnMap(payload) {
+export function viewPokemonOnMap(pokemon) {
     window.scroll(0,0);
     return {
         type: 'VIEW_POKEMON_ON_MAP',
-        payload,
+        payload: {
+            pokemon
+        }
     }
 }
