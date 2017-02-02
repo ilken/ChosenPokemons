@@ -1,9 +1,9 @@
 import React from 'react';
-import * as Actions from "../actions/Actions";
+import { viewPokemonOnMap } from "../actions/mapActions";
 
 export default class Pokemon extends React.Component {
 	handleClick(){
-		Actions.viewOnMap(this.props.data);
+		this.props.dispatch(viewPokemonOnMap(this.props.data));
 	}
 
 	render () {

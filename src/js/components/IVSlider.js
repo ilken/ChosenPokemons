@@ -1,10 +1,10 @@
 import React from 'react';
 import Slider from 'react-rangeslider';
-import * as Actions from "../actions/Actions";
+import { updateSliderValue } from "../actions/sliderActions";
 
 export default class IVSlider extends React.Component {
 	handleChange(value) {
-		Actions.updateSlider(value);
+		this.props.dispatch(updateSliderValue(value));
 	}
 
 	render () {
@@ -16,10 +16,10 @@ export default class IVSlider extends React.Component {
 					max={100}
 					step={1}
 					labels={labels}
-					value={this.props.sliderValue}
+					value={this.props.slider.value}
 					onChange={this.handleChange.bind(this)} />
           		<div className="sliderValue text-center">
-					<h2>Min IV%: {this.props.sliderValue} </h2>
+					<h2>Min IV%: {this.props.slider.value} </h2>
 				</div>
 			</div>
 		);

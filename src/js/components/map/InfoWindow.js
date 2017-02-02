@@ -1,49 +1,30 @@
 import React from 'react';
-import Store from '../stores/Store';
-import Actions from '../actions/Actions';
 
 export default class InfoWindow extends React.Component {
-	constructor(props){
-		super(props);
-
-		this.state = {
-			infoWindow: null
-		};
-	}
-
 	componentDidUpdate(prevProps){
-		this.createInfoWindow();
-		if(this.props.infoWindowData !== prevProps.infoWindowData){
-			this.closePrevInfoWindow();
+		if(prevProps.infoWindow.marker){
+			this.closePrevInfoWindow(prevProps.infoWindow);
+		}
+
+		if(this.props.infoWindow.marker){
 			this.openInfoWindow();
 		}
 	}
 
-	createInfoWindow(){
-		if(!this.state.infoWindow){
-			this.setState({
-				infoWindow: new google.maps.InfoWindow({
-					content: '',
-					disableAutoPan: true
-				})
-			});
-		}
-	}
-
-	closePrevInfoWindow(){
-		if(this.state.infoWindow){
-			this.state.infoWindow.close();
+	closePrevInfoWindow(infoWindow){
+		if(infoWindow.instance){
+			infoWindow.instance.close();
 		}
 	}
 
 	openInfoWindow(){
-		if(this.props.infoWindowData){
-			let pokemon = this.props.infoWindowData.pokemon;
+		if(this.props.infoWindow.instance){
+			let pokemon = this.props.infoWindow.marker.pokemon;
 			let content = this.buildInfoContent(pokemon);
 
-			this.props.map.setCenter(this.props.infoWindowData.marker.getPosition());
-			this.state.infoWindow.setContent(content);
-			this.state.infoWindow.open(this.props.map, this.props.infoWindowData.marker);
+			this.props.map.setCenter(this.props.infoWindow.marker.getPosition());
+			this.props.infoWindow.instance.setContent(content);
+			this.props.infoWindow.instance.open(this.props.map, this.props.infoWindow.marker);
 		}
 	}
 

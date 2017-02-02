@@ -1,16 +1,15 @@
-import "babel-polyfill";
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import {Provider} from 'react-redux';
+
 import Layout from './pages/Layout.js';
-import App from './pages/App.js';
+import store from './store';
 
 const app = document.getElementById('app');
 
 ReactDOM.render(
-    <Router history={hashHistory}>
-        <Route path="/" component={Layout}>
-            <IndexRoute component={App} />
-        </Route>
-    </Router>,
-app);
+    <Provider store={store}>
+        <Layout/>
+    </Provider>
+, app);
