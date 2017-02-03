@@ -6,5 +6,7 @@ export function initFireBaseConfig() {
 		storageBucket: "chosenpokemons.appspot.com",
 		messagingSenderId: "648454588454"
 	};
-	firebase.initializeApp(config);
+	if (!firebase.apps.length) {
+		firebase.initializeApp(config);
+	}
 }

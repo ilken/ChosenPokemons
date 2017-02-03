@@ -2,9 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-	context: path.resolve(__dirname, 'src'),
+	context: path.join(__dirname, '/'),
 	entry: [
-		'./js/client.prod.js'
+		'./index.prod.js'
 	],
 	module: {
 		rules: [
@@ -16,7 +16,7 @@ module.exports = {
 		]
 	},
 	output: {
-		path: path.resolve(__dirname, 'build/js/'),
+		path: path.join(__dirname, 'dist'),
 		filename: 'client.min.js',
 		publicPath: '/'
 	},
