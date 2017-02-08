@@ -30,9 +30,25 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
-				loader: ExtractTextPlugin.extract({
-					fallbackLoader: 'style-loader',
-					loader: 'css-loader!postcss-loader!sass-loader',
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: [
+						{
+							loader: "css-loader",
+							options: {
+								sourceMap: true
+							}
+						},
+						{
+							loader: "postcss-loader"
+						},
+						{
+							loader: "sass-loader",
+							options: {
+								sourceMap: true
+							}
+						}
+					],
 					publicPath: path.join(__dirname, 'dist')
 				})
 			}
@@ -43,7 +59,7 @@ module.exports = {
 		filename: 'client.min.js',
 		publicPath: '/'
 	},
-	devtool: 'inline-source-map',
+	devtool: 'source-map',
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
 		publicPath: '/',

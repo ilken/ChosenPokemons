@@ -17,9 +17,25 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
-				loader: ExtractTextPlugin.extract({
-					fallbackLoader: 'style-loader',
-					loader: 'css-loader!sass-loader',
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: [
+						{
+							loader: "css-loader",
+							options: {
+								minimize: true
+							}
+						},
+						{
+							loader: "postcss-loader"
+						},
+						{
+							loader: "sass-loader",
+							options: {
+								sourceMap: false
+							}
+						}
+					],
 					publicPath: path.join(__dirname, 'dist')
 				})
 			}
@@ -34,11 +50,9 @@ module.exports = {
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin({
 			beautify: false,
-			sourceMap: false,
 			mangle: false,
 			minimize: true,
 			compress: {
-				warnings: false,
 				drop_console: true
 			}
 		}),
