@@ -32,7 +32,7 @@ module.exports = {
 				test: /\.scss$/,
 				loader: ExtractTextPlugin.extract({
 					fallbackLoader: 'style-loader',
-					loader: 'css-loader!sass',
+					loader: 'css-loader!sass-loader',
 					publicPath: path.join(__dirname, 'dist')
 				})
 			}
@@ -54,6 +54,7 @@ module.exports = {
 			colors: true
 		}
 	},
+	watch: true,
 	plugins: [
 		new webpack.DefinePlugin({ENV_PRODUCTION: JSON.stringify(false)}),
 		new webpack.HotModuleReplacementPlugin(),

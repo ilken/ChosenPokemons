@@ -6,6 +6,8 @@ import store from './src/js/store';
 
 import { AppContainer } from 'react-hot-loader';
 
+require('./src/sass/main.scss');
+
 
 const render = (Component) => {
     ReactDOM.render(
