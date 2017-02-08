@@ -43,7 +43,7 @@ module.exports = {
 	},
 	output: {
 		path: path.join(__dirname, 'dist'),
-		filename: 'client.min.js',
+		filename: 'app.min.js',
 		publicPath: '/'
 	},
 	devtool: false,
@@ -56,7 +56,7 @@ module.exports = {
 				drop_console: true
 			}
 		}),
-		new ExtractTextPlugin("app.css"),
+		new ExtractTextPlugin("app.min.css"),
 		new webpack.DefinePlugin({ENV_PRODUCTION: JSON.stringify(true)}),
 		new CopyWebpackPlugin([
 			{from: path.join(__dirname, 'src/index.html'), to: 'index.html', force: true},

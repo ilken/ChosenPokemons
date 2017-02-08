@@ -56,7 +56,7 @@ module.exports = {
 	},
 	output: {
 		path: path.join(__dirname, 'dist'),
-		filename: 'client.min.js',
+		filename: 'app.min.js',
 		publicPath: '/'
 	},
 	devtool: 'source-map',
@@ -75,7 +75,7 @@ module.exports = {
 		new webpack.DefinePlugin({ENV_PRODUCTION: JSON.stringify(false)}),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NamedModulesPlugin(),
-		new ExtractTextPlugin("app.css"),
+		new ExtractTextPlugin("app.min.css"),
 		new CopyWebpackPlugin([
 			{from: path.join(__dirname, 'src/index.html'), to: 'index.html', force: true},
 			{from: path.join(__dirname, 'src/favicon.ico'), to: 'favicon.ico', force: true},
