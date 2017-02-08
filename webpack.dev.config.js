@@ -72,7 +72,7 @@ module.exports = {
 	},
 	watch: true,
 	plugins: [
-		new webpack.DefinePlugin({ENV_PRODUCTION: JSON.stringify(false)}),
+		new webpack.DefinePlugin({NODE_ENV: JSON.stringify('development')}),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NamedModulesPlugin(),
 		new ExtractTextPlugin("app.min.css"),

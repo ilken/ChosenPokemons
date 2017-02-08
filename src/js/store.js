@@ -8,7 +8,7 @@ import reducer from "./reducers";
 
 let middleware = [thunk];
 
-if (!ENV_PRODUCTION) {
+if (NODE_ENV === "development") {
 	middleware = [ ...middleware, logger()];
 }
 

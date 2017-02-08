@@ -57,7 +57,7 @@ module.exports = {
 			}
 		}),
 		new ExtractTextPlugin("app.min.css"),
-		new webpack.DefinePlugin({ENV_PRODUCTION: JSON.stringify(true)}),
+		new webpack.DefinePlugin({NODE_ENV: JSON.stringify('production')}),
 		new CopyWebpackPlugin([
 			{from: path.join(__dirname, 'src/index.html'), to: 'index.html', force: true},
 			{from: path.join(__dirname, 'src/favicon.ico'), to: 'favicon.ico', force: true},
