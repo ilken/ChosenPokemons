@@ -34,16 +34,16 @@ module.exports = {
 					fallback: 'style-loader',
 					use: [
 						{
-							loader: "css-loader",
+							loader: 'css-loader',
 							options: {
 								sourceMap: true
 							}
 						},
 						{
-							loader: "postcss-loader"
+							loader: 'postcss-loader'
 						},
 						{
-							loader: "sass-loader",
+							loader: 'sass-loader',
 							options: {
 								sourceMap: true
 							}
@@ -72,14 +72,14 @@ module.exports = {
 	},
 	watch: true,
 	plugins: [
-		new webpack.DefinePlugin({NODE_ENV: JSON.stringify('development')}),
+		new webpack.DefinePlugin({ NODE_ENV: JSON.stringify('development') }),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NamedModulesPlugin(),
-		new ExtractTextPlugin("app.min.css"),
+		new ExtractTextPlugin('app.min.css'),
 		new CopyWebpackPlugin([
-			{from: path.join(__dirname, 'src/index.html'), to: 'index.html', force: true},
-			{from: path.join(__dirname, 'src/favicon.ico'), to: 'favicon.ico', force: true},
-			{from: path.join(__dirname, 'src/img'), to: 'img', force: true}
+			{ from: path.join(__dirname, 'src/index.html'), to: 'index.html', force: true },
+			{ from: path.join(__dirname, 'src/favicon.ico'), to: 'favicon.ico', force: true },
+			{ from: path.join(__dirname, 'src/img'), to: 'img', force: true }
 		])
 	]
 };

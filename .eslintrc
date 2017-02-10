@@ -1,0 +1,33 @@
+{
+    "rules": {
+        "indent": [2, "tab", {"SwitchCase": 1}],
+        "brace-style" : [2, "stroustrup"],
+        "quotes": [2, "single"],
+        "linebreak-style": [0, "windows"],
+        "semi": [2, "always"],
+        "no-console": [1],
+        "no-debugger": [1],
+        "max-len": [0],
+        "react/prop-types": [0],
+    },
+    "env": {
+        "es6": true,
+        "node": true,
+        "browser": true
+    },
+    "extends": "react",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true,
+            "experimentalObjectRestSpread": true
+        }
+    },
+    "plugins": [
+        "react"
+    ],
+    "globals": {
+        "firebase": true,
+        "google": true,
+        "NODE_ENV": true
+    }
+}

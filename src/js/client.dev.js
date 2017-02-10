@@ -7,7 +7,7 @@ import { AppContainer } from 'react-hot-loader';
 
 
 const render = (Component) => {
-    ReactDOM.render(
+	ReactDOM.render(
         <AppContainer>
             <Component/>
         </AppContainer>,
@@ -18,7 +18,7 @@ const render = (Component) => {
 render(Root);
 
 if (module.hot) {
-    module.hot.accept('./pages/Root', () => {
-        render(Root)
-    });
+	module.hot.accept('./pages/Root', () => {
+		render(Root);
+	});
 }

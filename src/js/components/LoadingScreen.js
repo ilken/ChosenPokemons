@@ -5,7 +5,7 @@ export default class LoadingScreen extends React.Component {
 		return (
 			<div className="row loadingScreen">
 				<img src={this.props.loadingScreen.image} className="img-responsive loadingImage" alt="Pokemon"/>
-				<h2 className="text-center"> {"Who's That Pokemon?"} </h2>
+				<h2 className="text-center"> {'Who\'s That Pokemon?'} </h2>
 			</div>
 		);
 	}

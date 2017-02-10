@@ -4,8 +4,8 @@ import PokeMap from '../PokeMap';
 import IVSlider from '../IVSlider';
 import LoadingScreen from '../LoadingScreen';
 
-import { fetchPokemons } from "../../actions/pokemonActions";
-import {connect} from 'react-redux';
+import { fetchPokemons } from '../../actions/pokemonActions';
+import { connect } from 'react-redux';
 
 @connect((store) => {
 	return {
@@ -38,14 +38,12 @@ export default class App extends React.Component {
 							<PokeMap
 								dispatch={this.props.dispatch}
 								pokemons={this.props.pokemons}
-								map={this.props.map}>
-							</PokeMap>
+								map={this.props.map} />
 						</div>
 						<div className="col-md-12 col-sm-12 col-xs-12">
 							<IVSlider
 								dispatch={this.props.dispatch}
-								slider={this.props.slider}>
-							</IVSlider>
+								slider={this.props.slider} />
 						</div>
 						<div className="col-md-12 col-sm-12 col-xs-12">
 							{PokemonComponents}

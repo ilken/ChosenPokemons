@@ -21,16 +21,16 @@ module.exports = {
 					fallback: 'style-loader',
 					use: [
 						{
-							loader: "css-loader",
+							loader: 'css-loader',
 							options: {
 								minimize: true
 							}
 						},
 						{
-							loader: "postcss-loader"
+							loader: 'postcss-loader'
 						},
 						{
-							loader: "sass-loader",
+							loader: 'sass-loader',
 							options: {
 								sourceMap: false
 							}
@@ -56,12 +56,12 @@ module.exports = {
 				drop_console: true
 			}
 		}),
-		new ExtractTextPlugin("app.min.css"),
-		new webpack.DefinePlugin({NODE_ENV: JSON.stringify('production')}),
+		new ExtractTextPlugin('app.min.css'),
+		new webpack.DefinePlugin({ NODE_ENV: JSON.stringify('production') }),
 		new CopyWebpackPlugin([
-			{from: path.join(__dirname, 'src/index.html'), to: 'index.html', force: true},
-			{from: path.join(__dirname, 'src/favicon.ico'), to: 'favicon.ico', force: true},
-			{from: path.join(__dirname, 'src/img'), to: 'img', force: true}
+			{ from: path.join(__dirname, 'src/index.html'), to: 'index.html', force: true },
+			{ from: path.join(__dirname, 'src/favicon.ico'), to: 'favicon.ico', force: true },
+			{ from: path.join(__dirname, 'src/img'), to: 'img', force: true }
 		])
 	]
 };

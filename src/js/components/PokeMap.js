@@ -1,19 +1,11 @@
 import React from 'react';
 import Markers from './map/Markers';
 import InfoWindow from './map/InfoWindow';
-import {Gmaps} from 'react-gmaps';
-
-import {
-	mapCreated,
-	updateMapState,
-	openInfoWindow,
-	viewOnMap,
-	centerChanged,
-	zoomChanged
-} from "../actions/mapActions";
+import { Gmaps } from 'react-gmaps';
+import { mapCreated } from '../actions/mapActions';
 
 export default class PokeMap extends React.Component {
-	onMapCreated(map) {
+	onMapCreated (map) {
 		map.setOptions({
 			disableDefaultUI: this.props.map.options.disableDefaultUI,
 			clickableIcons: this.props.map.options.clickableIcons
@@ -32,19 +24,16 @@ export default class PokeMap extends React.Component {
 					lng={this.props.map.center.lng}
 					zoom={this.props.map.zoom}
 					loadingMessage={this.props.map.loadingMessage}
-					params={{v: '3.exp', key: this.props.map.API_KEY}}
-					onMapCreated={this.onMapCreated.bind(this)}>
-				</Gmaps>
+					params={{ v: '3.exp', key: this.props.map.API_KEY }}
+					onMapCreated={this.onMapCreated.bind(this)} />
 				<Markers
 					dispatch={this.props.dispatch}
 					map={this.props.map.map}
 					pokemons={this.props.pokemons}
-					markers={this.props.map.markers}>
-				</Markers>
+					markers={this.props.map.markers} />
 				<InfoWindow
 					infoWindow={this.props.map.infoWindow}
-					map={this.props.map.map}>
-				</InfoWindow>
+					map={this.props.map.map} />
 			</div>
 		);
 	}

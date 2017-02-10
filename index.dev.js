@@ -10,9 +10,9 @@ require('./src/sass/main.scss');
 
 
 const render = (Component) => {
-    ReactDOM.render(
+	ReactDOM.render(
         <AppContainer>
-            <Component store={ store }/>
+            <Component store={store}/>
         </AppContainer>,
         document.getElementById('app')
     );
@@ -21,7 +21,7 @@ const render = (Component) => {
 render(Root);
 
 if (module.hot) {
-    module.hot.accept('./src/js/pages/Root', () => {
-        render(Root)
-    });
+	module.hot.accept('./src/js/pages/Root', () => {
+		render(Root);
+	});
 }

@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class Header extends React.Component {
 	render () {
-		const pokeball = "/img/pokeball.svg";
+		const pokeball = '/img/pokeball.svg';
 
 		return (
             <nav className="navbar navbar-inverse navbar-fixed-top top-nav-collapse" role="navigation">

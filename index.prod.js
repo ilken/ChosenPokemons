@@ -6,4 +6,4 @@ import store from './src/js/store';
 
 require('./src/sass/main.scss');
 
-ReactDOM.render(<Root store={ store }/>, document.getElementById('app'));
+ReactDOM.render(<Root store={store}/>, document.getElementById('app'));
