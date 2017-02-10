@@ -45,7 +45,7 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-gmaps": "^1.5.0",
-    "react-rangeslider": "^1.0.9",
+    "react-input-range": "^1.0.2",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
     "redux-logger": "^2.6.1",
