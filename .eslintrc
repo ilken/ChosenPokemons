@@ -5,9 +5,26 @@
         "quotes": [2, "single"],
         "linebreak-style": [0, "windows"],
         "semi": [2, "always"],
-        "no-console": [1],
-        "no-debugger": [1],
-        "max-len": [0],
+        "no-console": 1,
+        "no-debugger": 1,
+        "max-len": 0,
+
+        // Best Practices Rules
+        "no-else-return": 1,
+        "no-useless-return": 2,
+
+
+        // ES6 Rules
+        "constructor-super": 2,
+        "no-const-assign": 2,
+        "no-dupe-class-members": 2,
+        "no-duplicate-imports": [
+            "error", {"includeExports": true}
+        ],
+        "no-useless-constructor": 2,
+        "prefer-promise-reject-errors": 2,
+
+        //React Rules
         "react/prop-types": [0],
     },
     "env": {
