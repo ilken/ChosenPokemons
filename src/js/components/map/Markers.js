@@ -12,38 +12,54 @@ export default class Markers extends React.Component {
 	}
 
 	updateMarkers () {
-	    if (this.props.markers.length > 0) {
-	        this.clearMarkers();
-	    }
+	    let markers = this.clearExpiredMarkers(this.props.markers);
 
-	    this.createMarkers();
-	}
-
-	createMarkers () {
-	    let _markers = [];
-
-	    if (this.props.map) {
-	        for (let p of this.props.pokemons) {
-	            let _marker = new google.maps.Marker({
-	                position: new google.maps.LatLng(p.lat, p.lon),
-	                icon: '/img/pokemon/' + p.id + '.svg'
-	            });
-	            _marker.pokemon = p;
-
-		_marker.addListener('click', this.openInfoWindow.bind(this, _marker));
-		_marker.setMap(this.props.map);
-
-	            _markers.push(_marker);
+		for (let p of this.props.pokemons) {
+	        if (!this.markerExist(p)) {
+	            this.addMarker(markers, p);
 	        }
-	    }
+		}
 
-		this.props.dispatch(updateMarkers(_markers));
+		this.props.dispatch(updateMarkers(markers));
 	}
 
-	clearMarkers (markers) {
-	    for (let m of this.props.markers) {
-	        m.setMap(null);
-	    }
+	addMarker (markers, pokemon) {
+		let marker = new google.maps.Marker({
+			position: new google.maps.LatLng(pokemon.lat, pokemon.lon),
+			icon: '/img/pokemon/' + pokemon.id + '.svg'
+		});
+		marker.pokemon = pokemon;
+
+		marker.addListener('click', this.openInfoWindow.bind(this, marker));
+		marker.setMap(this.props.map);
+		markers.push(marker);
+	}
+
+	removeMarker (marker) {
+		marker.setMap(null);
+	}
+
+	clearExpiredMarkers (markers) {
+		let activeMarkers = [];
+
+		for (let marker of markers) {
+			if (this.markerActive(marker)) {
+				activeMarkers.push(marker);
+			}
+			else {
+				this.removeMarker(marker);
+			}
+		}
+
+		return activeMarkers;
+	}
+
+	markerExist (pokemon) {
+		return this.props.markers.find((marker) => marker.pokemon === pokemon);
+	}
+
+	markerActive (marker) {
+		return this.props.pokemons.find((pokemon) => marker.pokemon === pokemon);
 	}
 
 	openInfoWindow (marker) {
