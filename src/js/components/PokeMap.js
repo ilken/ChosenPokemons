@@ -8,7 +8,9 @@ export default class PokeMap extends React.Component {
 	onMapCreated (map) {
 		map.setOptions({
 			disableDefaultUI: this.props.map.options.disableDefaultUI,
-			clickableIcons: this.props.map.options.clickableIcons
+			clickableIcons: this.props.map.options.clickableIcons,
+			maxZoom: this.props.map.options.maxZoom,
+			minZoom: this.props.map.options.minZoom
 		});
 
 		this.props.dispatch(mapCreated(map));

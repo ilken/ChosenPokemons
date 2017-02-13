@@ -23,7 +23,9 @@ const defaultMapReducerState = {
 	},
 	options: {
 		disableDefaultUI: true,
-		clickableIcons: false
+		clickableIcons: false,
+		maxZoom: 18,
+		minZoom: 10
 	},
 	loadingMessage: 'Loading...',
 	markers: [],
