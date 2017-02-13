@@ -21,7 +21,7 @@ export default function reducer (state = defaultPokemonReducerState, action) {
 				pokemons: action.payload.pokemons.ivpokemons,
 				rarePokemons: filterPokemons(action.payload.pokemons.rarepokemons, 0),
 				filteredPokemons: filterPokemons(action.payload.pokemons.ivpokemons, action.payload.ivLimit),
-				mapPokemons: action.payload.pokemons.ivpokemons.concat(action.payload.pokemons.rarepokemons)
+				mapPokemons: filterPokemons(action.payload.pokemons.ivpokemons, action.payload.ivLimit).concat(action.payload.pokemons.rarepokemons)
 			};
 		}
 		case 'UPDATE_SLIDER': {
