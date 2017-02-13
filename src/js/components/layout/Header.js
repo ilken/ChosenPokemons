@@ -9,7 +9,7 @@ export default class Header extends React.Component {
                 <div className="container">
                     <div className="navbar-header">
                         <a className="navbar-brand" target="_blank" href="#">
-							<img className="img-responsive" src={pokeball} alt="PokeBall"/> London High IV Pokemons
+							<img className="img-responsive" src={pokeball} alt="PokeBall"/> London High IV & Rare Pokemon
 						</a>
                     </div>
                 </div>

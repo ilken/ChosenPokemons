@@ -5,7 +5,9 @@ let filterPokemons = (pokemons, ivLimit) => {
 
 const defaultPokemonReducerState = {
 	pokemons: [],
+	rarePokemons: [],
 	filteredPokemons: [],
+	mapPokemons: [],
 	fetching: true,
 	error: null
 };
@@ -16,14 +18,17 @@ export default function reducer (state = defaultPokemonReducerState, action) {
 			return {
 				...state,
 				fetching: false,
-				pokemons: action.payload.pokemons,
-				filteredPokemons: filterPokemons(action.payload.pokemons, action.payload.ivLimit)
+				pokemons: action.payload.pokemons.ivpokemons,
+				rarePokemons: filterPokemons(action.payload.pokemons.rarepokemons, 0),
+				filteredPokemons: filterPokemons(action.payload.pokemons.ivpokemons, action.payload.ivLimit),
+				mapPokemons: action.payload.pokemons.ivpokemons.concat(action.payload.pokemons.rarepokemons)
 			};
 		}
 		case 'UPDATE_SLIDER': {
 			return {
 				...state,
-				filteredPokemons: filterPokemons(state.pokemons, action.payload.sliderValue)
+				filteredPokemons: filterPokemons(state.pokemons, action.payload.sliderValue),
+				mapPokemons: filterPokemons(state.pokemons, action.payload.sliderValue).concat(state.rarePokemons)
 			};
 		}
 	}

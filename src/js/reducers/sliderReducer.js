@@ -1,5 +1,5 @@
 const defaultSliderReducerState = {
-	value: 90
+	value: 95
 };
 
 export default function reducer (state = defaultSliderReducerState, action) {

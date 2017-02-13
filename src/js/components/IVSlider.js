@@ -22,7 +22,7 @@ export default class IVSlider extends React.Component {
 					ariaLabelledby=""
 					ariaControls=""
 			        maxValue={100}
-			        minValue={80}
+			        minValue={90}
 			        value={this.state.value}
 			        onChange={value => this.setState({ value })}
 			        onChangeComplete={this.handleChange.bind(this)} />

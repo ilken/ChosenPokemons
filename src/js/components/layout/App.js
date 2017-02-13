@@ -11,6 +11,8 @@ import { connect } from 'react-redux';
 	return {
 		loading: store.pokemon.fetching,
 		pokemons: store.pokemon.filteredPokemons,
+		rarePokemons: store.pokemon.rarePokemons,
+		mapPokemons: store.pokemon.mapPokemons,
 		map: store.map,
 		slider: store.slider,
 		loadingScreen: store.loadingScreen
@@ -31,22 +33,37 @@ export default class App extends React.Component {
 			return <Pokemon key={pokemon.name + pokemon.lat + pokemon.lon} data={pokemon} dispatch={this.props.dispatch}/>;
 		});
 
+		const RarePokemonComponents = this.props.rarePokemons.map((pokemon) => {
+			return <Pokemon key={pokemon.name + pokemon.lat + pokemon.lon} data={pokemon} dispatch={this.props.dispatch}/>;
+		});
+
 		return (
 			<div className="container">
 				<div className="row">
 					<div className="col-md-12 col-sm-12 col-xs-12">
 						<PokeMap
 							dispatch={this.props.dispatch}
-							pokemons={this.props.pokemons}
+							pokemons={this.props.mapPokemons}
 							map={this.props.map} />
 					</div>
 					<div className="col-md-12 col-sm-12 col-xs-12">
-						<IVSlider
-							dispatch={this.props.dispatch}
-							slider={this.props.slider} />
+						<div className="row">
+							<div className="col-md-12 col-sm-12 col-xs-12">
+								<h2 className="text-center">High IV Pokemon List</h2>
+							</div>
+							<div className="col-md-12 col-sm-12 col-xs-12">
+								<IVSlider
+									dispatch={this.props.dispatch}
+									slider={this.props.slider} />
+							</div>
+						</div>
+						{PokemonComponents}
 					</div>
 					<div className="col-md-12 col-sm-12 col-xs-12">
-						{PokemonComponents}
+						<div className="row">
+							<h2 className="text-center">Rare Pokemon List</h2>
+						</div>
+						{RarePokemonComponents}
 					</div>
 				</div>
 			</div>

@@ -38,6 +38,7 @@ export default class InfoWindow extends React.Component {
 		return '<div class="infoWindow text-center">' +
 				'<span class="name">' + pokemon.name + ' ' + pokemon.iv + '%</span> <br>' +
 				'<span class="stats">Atk:' + pokemon.attack + ' | Def:' + pokemon.defence + ' | Sta:' + pokemon.stamina + '</span> <br>' +
+				'<span class="stats">Moves: ' + pokemon.firstMove + ' | ' + pokemon.secondMove + '</span> <br>' +
 				'<span class="expires">Expires: ' + formattedTime + '</span> <br>' +
 				'</div>';
 	}
