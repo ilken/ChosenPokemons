@@ -1,7 +1,4 @@
-let filterPokemons = (pokemons, ivLimit) => {
-	let _filteredPokemons = pokemons.filter((p) => p.iv >= ivLimit);
-	return _filteredPokemons.sort((a, b) => b.iv - a.iv);
-};
+import { filterPokemons } from '../helpers/helper';
 
 const defaultPokemonReducerState = {
 	pokemons: [],
@@ -18,10 +15,10 @@ export default function reducer (state = defaultPokemonReducerState, action) {
 			return {
 				...state,
 				fetching: false,
-				pokemons: action.payload.pokemons.ivpokemons,
-				rarePokemons: filterPokemons(action.payload.pokemons.rarepokemons, 0),
-				filteredPokemons: filterPokemons(action.payload.pokemons.ivpokemons, action.payload.ivLimit),
-				mapPokemons: filterPokemons(action.payload.pokemons.ivpokemons, action.payload.ivLimit).concat(action.payload.pokemons.rarepokemons)
+				pokemons: action.payload.pokemons,
+				rarePokemons: action.payload.rarePokemons,
+				filteredPokemons: action.payload.filteredPokemons,
+				mapPokemons: action.payload.filteredPokemons.concat(action.payload.rarePokemons)
 			};
 		}
 		case 'UPDATE_SLIDER': {

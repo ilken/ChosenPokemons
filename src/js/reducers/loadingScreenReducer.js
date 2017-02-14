@@ -1,6 +1,4 @@
-let getRandomPokemonId = () => {
-	return Math.floor(Math.random() * (151 - 1) + 1);
-};
+import { getRandomPokemonId } from '../helpers/helper';
 
 const defaultLoadingScreenReducerState = {
 	image: '/img/pokemon/' + getRandomPokemonId() + '.svg'

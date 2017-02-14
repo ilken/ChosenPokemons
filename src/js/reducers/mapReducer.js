@@ -1,13 +1,4 @@
-let getInfoWindowInstance = (instance) => {
-	if (!instance) {
-		instance = new google.maps.InfoWindow({
-			content: '',
-			disableAutoPan: true
-		});
-	}
-
-	return instance;
-};
+import { getInfoWindowInstance } from '../helpers/helper';
 
 const defaultMapReducerState = {
 	API_KEY: 'AIzaSyB0LCSzHoRAkhCpheh4c_0BARgsjF9dr_s',

@@ -1,4 +1,5 @@
 import { initFireBaseConfig } from '../firebase';
+import { filterPokemons } from '../helpers/helper';
 
 export function fetchPokemons () {
 	return function (dispatch) {
@@ -18,14 +19,17 @@ export function updatePokemons (pokemons) {
 		const { slider, map } = getState();
 		let center = map.map ? { lat: map.map.center.lat(), lng: map.map.center.lng() } : map.center;
 		let zoom = map.map ? map.map.getZoom() : map.zoom;
+		let filteredPokemons = filterPokemons(pokemons.ivpokemons, slider.value);
+		let rarePokemons = filterPokemons(pokemons.rarepokemons);
 
 		dispatch({
 			type: 'UPDATE_POKEMONS',
 			payload: {
-				pokemons,
+				pokemons: pokemons.ivpokemons,
+				filteredPokemons,
+				rarePokemons,
 				center,
-				zoom,
-				ivLimit: slider.value
+				zoom
 			}
 		});
 	};
