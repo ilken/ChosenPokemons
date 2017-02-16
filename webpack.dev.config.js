@@ -26,7 +26,20 @@ module.exports = {
 				test: /\.jsx?$/,
 				include: __dirname,
 				exclude: /node_modules/,
-				loaders: ['babel-loader']
+				loader: 'babel-loader',
+				options: {
+					presets: [
+						['es2015', { modules: false }],
+						'stage-2',
+						'react'
+					],
+					plugins: [
+						'react-html-attrs',
+						'transform-decorators-legacy',
+						'transform-class-properties',
+						'react-hot-loader/babel'
+					]
+				}
 			},
 			{
 				test: /\.scss$/,

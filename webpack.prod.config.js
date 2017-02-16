@@ -13,7 +13,19 @@ module.exports = {
 			{
 				test: /\.jsx?$/,
 				exclude: /node_modules/,
-				loaders: ['babel-loader']
+				loader: 'babel-loader',
+				options: {
+					presets: [
+						['es2015'],
+						'stage-2',
+						'react'
+					],
+					plugins: [
+						'react-html-attrs',
+						'transform-decorators-legacy',
+						'transform-class-properties'
+					]
+				}
 			},
 			{
 				test: /\.scss$/,
