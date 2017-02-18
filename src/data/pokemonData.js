@@ -609,11 +609,11 @@ const pokemonData = {
 	},
 	153: {
 		name: 'Bayleef',
-		rare: false
+		rare: true
 	},
 	154: {
 		name: 'Meganium',
-		rare: false
+		rare: true
 	},
 	155: {
 		name: 'Cyndaquil',
@@ -621,7 +621,7 @@ const pokemonData = {
 	},
 	156: {
 		name: 'Quilava',
-		rare: false
+		rare: true
 	},
 	157: {
 		name: 'Typhlosion',
@@ -701,7 +701,7 @@ const pokemonData = {
 	},
 	176: {
 		name: 'Togetic',
-		rare: false
+		rare: true
 	},
 	177: {
 		name: 'Natu',
@@ -713,7 +713,7 @@ const pokemonData = {
 	},
 	179: {
 		name: 'Mareep',
-		rare: false
+		rare: true
 	},
 	180: {
 		name: 'Flaaffy',
@@ -725,7 +725,7 @@ const pokemonData = {
 	},
 	182: {
 		name: 'Bellossom',
-		rare: false
+		rare: true
 	},
 	183: {
 		name: 'Marill',
@@ -901,7 +901,7 @@ const pokemonData = {
 	},
 	226: {
 		name: 'Mantine',
-		rare: false
+		rare: true
 	},
 	227: {
 		name: 'Skarmory',
@@ -945,7 +945,7 @@ const pokemonData = {
 	},
 	237: {
 		name: 'Hitmontop',
-		rare: false
+		rare: true
 	},
 	238: {
 		name: 'Smoochum',
@@ -961,7 +961,7 @@ const pokemonData = {
 	},
 	241: {
 		name: 'Miltank',
-		rare: false
+		rare: true
 	},
 	242: {
 		name: 'Blissey',

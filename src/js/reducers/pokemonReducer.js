@@ -28,7 +28,7 @@ export default function reducer (state = defaultPokemonReducerState, action) {
 		case 'SWITCH_POKEMON_LIST': {
 			return {
 				...state,
-				filteredPokemons: filterPokemons(state.pokemons, action.payload.sliderValue, action.payload.activeType)
+				filteredPokemons: filterPokemons(state.pokemons, action.payload.sliderValue, action.payload.activeType, action.payload.center)
 			};
 		}
 	}

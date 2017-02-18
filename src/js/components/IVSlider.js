@@ -16,7 +16,7 @@ export default class IVSlider extends React.Component {
 	}
 
 	render () {
-		if (this.props.activeType === 'rare') {
+		if (this.props.activeType === 'rare' || this.props.activeType === 'nearMe') {
 			return null;
 		}
 
