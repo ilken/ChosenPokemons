@@ -34,7 +34,7 @@ export default class InfoWindow extends React.Component {
 		let minutes = '0' + despawn.getMinutes();
 		let seconds = '0' + despawn.getSeconds();
 		let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-		let mapUrl = 'https://www.google.co.uk/maps/search/' + pokemon.lat + ',' + pokemon.lon;
+		let mapUrl = 'https://www.google.co.uk/maps/search/' + pokemon.lat + ',' + pokemon.lng;
 
 		return '<div class="infoWindow text-center">' +
 				'<span class="name">' + pokemon.name + ' ' + pokemon.iv + '%</span> <br>' +
