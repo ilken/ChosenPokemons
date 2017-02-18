@@ -1,16 +1,16 @@
-export function updateSliderValue (sliderValue) {
+export function switchPokemonList (activeType) {
 	return (dispatch, getState) => {
-		const { map, switchList } = getState();
+		const { slider, map } = getState();
 		let center = map.map ? { lat: map.map.center.lat(), lng: map.map.center.lng() } : map.center;
 		let zoom = map.map ? map.map.getZoom() : map.zoom;
 
 		dispatch({
-			type: 'UPDATE_SLIDER',
+			type: 'SWITCH_POKEMON_LIST',
 			payload: {
-				sliderValue,
+				activeType,
 				center,
 				zoom,
-				activeType: switchList.activeType
+				sliderValue: slider.value
 			}
 		});
 	};

@@ -8,7 +8,7 @@ export default class Pokemon extends React.Component {
 
 	render () {
 		const data = this.props.data;
-		const mapUrl = 'https://www.google.co.uk/maps/search/' + data.lat + ',' + data.lon;
+		const mapUrl = 'https://www.google.co.uk/maps/search/' + data.lat + ',' + data.lng;
 		const despawn = new Date(data.expires * 1000);
 		const hours = despawn.getHours();
 		const minutes = '0' + despawn.getMinutes();

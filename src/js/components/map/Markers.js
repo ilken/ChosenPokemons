@@ -25,7 +25,7 @@ export default class Markers extends React.Component {
 
 	addMarker (markers, pokemon) {
 		let marker = new google.maps.Marker({
-			position: new google.maps.LatLng(pokemon.lat, pokemon.lon),
+			position: new google.maps.LatLng(pokemon.lat, pokemon.lng),
 			icon: '/img/pokemon/' + pokemon.id + '.svg'
 		});
 		marker.pokemon = pokemon;

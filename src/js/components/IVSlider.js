@@ -16,6 +16,10 @@ export default class IVSlider extends React.Component {
 	}
 
 	render () {
+		if (this.props.activeType === 'rare') {
+			return null;
+		}
+
 		return (
 			<div className="slider">
 				<InputRange

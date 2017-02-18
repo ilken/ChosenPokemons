@@ -51,7 +51,7 @@ export default function reducer (state = defaultMapReducerState, action) {
 				...state,
 				center: {
 					lat: action.payload.pokemon.lat,
-					lng: action.payload.pokemon.lon
+					lng: action.payload.pokemon.lng
 				},
 				zoom: state.map.getZoom(),
 				infoWindow: {
@@ -65,7 +65,7 @@ export default function reducer (state = defaultMapReducerState, action) {
 				...state,
 				center: {
 					lat: action.payload.marker.pokemon.lat,
-					lng: action.payload.marker.pokemon.lon
+					lng: action.payload.marker.pokemon.lng
 				},
 				zoom: state.map.getZoom(),
 				infoWindow: {
@@ -86,6 +86,13 @@ export default function reducer (state = defaultMapReducerState, action) {
 			};
 		}
 		case 'UPDATE_SLIDER': {
+			return {
+				...state,
+				center: action.payload.center,
+				zoom: action.payload.zoom
+			};
+		}
+		case 'SWITCH_POKEMON_LIST': {
 			return {
 				...state,
 				center: action.payload.center,

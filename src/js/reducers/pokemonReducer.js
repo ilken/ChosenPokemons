@@ -16,16 +16,19 @@ export default function reducer (state = defaultPokemonReducerState, action) {
 				...state,
 				fetching: false,
 				pokemons: action.payload.pokemons,
-				rarePokemons: action.payload.rarePokemons,
-				filteredPokemons: action.payload.filteredPokemons,
-				mapPokemons: action.payload.filteredPokemons.concat(action.payload.rarePokemons)
+				filteredPokemons: filterPokemons(action.payload.pokemons, action.payload.sliderValue, action.payload.activeType)
 			};
 		}
 		case 'UPDATE_SLIDER': {
 			return {
 				...state,
-				filteredPokemons: filterPokemons(state.pokemons, action.payload.sliderValue),
-				mapPokemons: filterPokemons(state.pokemons, action.payload.sliderValue).concat(state.rarePokemons)
+				filteredPokemons: filterPokemons(state.pokemons, action.payload.sliderValue, action.payload.activeType)
+			};
+		}
+		case 'SWITCH_POKEMON_LIST': {
+			return {
+				...state,
+				filteredPokemons: filterPokemons(state.pokemons, action.payload.sliderValue, action.payload.activeType)
 			};
 		}
 	}
