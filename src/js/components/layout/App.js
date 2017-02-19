@@ -30,7 +30,7 @@ export default class App extends React.Component {
 		}
 
 		const PokemonComponents = this.props.pokemons.map((pokemon) => {
-			return <Pokemon key={pokemon.name + pokemon.lat + pokemon.lon} data={pokemon} dispatch={this.props.dispatch}/>;
+			return <Pokemon key={pokemon.name + pokemon.lat + pokemon.lng} data={pokemon} dispatch={this.props.dispatch}/>;
 		});
 
 		return (
