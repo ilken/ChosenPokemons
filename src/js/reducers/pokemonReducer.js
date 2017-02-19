@@ -16,13 +16,13 @@ export default function reducer (state = defaultPokemonReducerState, action) {
 				...state,
 				fetching: false,
 				pokemons: action.payload.pokemons,
-				filteredPokemons: filterPokemons(action.payload.pokemons, action.payload.sliderValue, action.payload.activeType)
+				filteredPokemons: filterPokemons(action.payload.pokemons, action.payload.sliderValue, action.payload.activeType, action.payload.center)
 			};
 		}
 		case 'UPDATE_SLIDER': {
 			return {
 				...state,
-				filteredPokemons: filterPokemons(state.pokemons, action.payload.sliderValue, action.payload.activeType)
+				filteredPokemons: filterPokemons(state.pokemons, action.payload.sliderValue, action.payload.activeType, action.payload.center)
 			};
 		}
 		case 'SWITCH_POKEMON_LIST': {
