@@ -11,17 +11,18 @@ require('./src/sass/main.scss');
 
 const render = (Component) => {
 	ReactDOM.render(
-        <AppContainer>
-            <Component store={store}/>
-        </AppContainer>,
-        document.getElementById('app')
-    );
+		<AppContainer>
+			<Component store={store}/>
+		</AppContainer>,
+		document.getElementById('app')
+	);
 };
 
 render(Root);
 
 if (module.hot) {
 	module.hot.accept('./src/js/pages/Root', () => {
-		render(Root);
+		const newRoot = require('./src/js/pages/Root').default;
+		render(newRoot);
 	});
 }

@@ -297,7 +297,7 @@ const pokemonData = {
 	},
 	75: {
 		name: 'Graveler',
-		rare: true
+		rare: false
 	},
 	76: {
 		name: 'Golem',
@@ -453,7 +453,7 @@ const pokemonData = {
 	},
 	114: {
 		name: 'Tangela',
-		rare: false
+		rare: true
 	},
 	115: {
 		name: 'Kangaskhan',
@@ -545,7 +545,7 @@ const pokemonData = {
 	},
 	137: {
 		name: 'Porygon',
-		rare: true
+		rare: false
 	},
 	138: {
 		name: 'Omanyte',
@@ -605,7 +605,7 @@ const pokemonData = {
 	},
 	152: {
 		name: 'Chikorita',
-		rare: false
+		rare: true
 	},
 	153: {
 		name: 'Bayleef',
@@ -617,7 +617,7 @@ const pokemonData = {
 	},
 	155: {
 		name: 'Cyndaquil',
-		rare: false
+		rare: true
 	},
 	156: {
 		name: 'Quilava',
@@ -629,7 +629,7 @@ const pokemonData = {
 	},
 	158: {
 		name: 'Totodile',
-		rare: false
+		rare: true
 	},
 	159: {
 		name: 'Croconaw',
@@ -801,7 +801,7 @@ const pokemonData = {
 	},
 	201: {
 		name: 'Unown',
-		rare: false
+		rare: true
 	},
 	202: {
 		name: 'Wobbuffet',
@@ -901,7 +901,7 @@ const pokemonData = {
 	},
 	226: {
 		name: 'Mantine',
-		rare: true
+		rare: false
 	},
 	227: {
 		name: 'Skarmory',

@@ -81,7 +81,9 @@ module.exports = {
 		port: 3000,
 		open: true,
 		stats: {
-			colors: true
+			colors: true,
+			modules: false,
+			reasons: true
 		}
 	},
 	watch: true,
@@ -94,6 +96,12 @@ module.exports = {
 			{ from: path.join(__dirname, 'src/index.html'), to: 'index.html', force: true },
 			{ from: path.join(__dirname, 'src/favicon.ico'), to: 'favicon.ico', force: true },
 			{ from: path.join(__dirname, 'src/img'), to: 'img', force: true }
-		])
+		]),
+		function () {
+			this.plugin('watch-run', function (watching, callback) {
+				console.log('\x1b[36mStart compiling: ' + new Date() + '\x1b[0m');
+				callback();
+			});
+		}
 	]
 };
